@@ -18,7 +18,7 @@ Devise.setup do |config|
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
-  # config.parent_controller = 'DeviseController'
+  #config.parent_controller = 'TurboController'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -64,7 +64,10 @@ Devise.setup do |config|
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
   config.strip_whitespace_keys = [:email]
-
+  config.authentication_keys = [ :signin ]
+  config.case_insensitive_keys = [:username]
+  config.strip_whitespace_keys = [:username]
+  config.navigational_formats = ['*/*', :html, :turbo_stream]
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
   # given strategies, for example, `config.params_authenticatable = [:database]` will
